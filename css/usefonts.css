@@ -1,0 +1,31 @@
+@font-face {
+
+font-family: Migra-Extrabold;
+
+src: url(css/Fonts/Migra-Extrabold.otf);
+
+}
+
+@font-face {
+
+font-family: Migra-Extralight;
+
+src: url(css/Fonts/Migra-Extralight.otf);
+
+}
+
+@font-face {
+
+font-family: MigraItalic-ExtraboldItalic;
+
+src: url(css/Fonts/MigraItalic-ExtraboldItalic.otf);
+
+}
+
+@font-face {
+
+font-family: MigraItalic-ExtralightItalic;
+
+src: url(css/Fonts/MigraItalic-ExtralightItalic.otf);
+
+}
