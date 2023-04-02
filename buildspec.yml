@@ -1,11 +1,35 @@
 version: 0.2
 
+env:
+  variables:
+    APP_NAME: "project_name"
+    CACHE_CONTORL : "86400"
+    S3_BUCKET: "https://s3.amazonaws.com/test1.project_name.com/"
+    BUILD_FOLDER: "project_name-ng/dist/project_name/browser"
 phases:
   install:
     commands:
       - apt-get update
       - apt-get install -y php
+    runtime-versions:
+      nodejs: 14.x
+    commands:
+      - echo install process started
+      - npm install -g @angular/cli
+      - cd project_name-ng
+      - npm install
   build:
     commands:
+      - echo build process started now
+      - ng build --configuration=production
       - php -v
       - php index.php
+  post_build:
+    commands:
+      - echo build process finished, we should uplload to S3 now
+
+artifacts:
+    files:
+      - '**/*'
+    base-directory: 'project_name-ng/dist/project_name/browser*'
+    discard-paths: yes
